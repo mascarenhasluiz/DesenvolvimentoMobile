@@ -1,0 +1,26 @@
+
+
+.container {
+            width: 200px;
+            border: 12px solid #ccc;
+            padding: 12px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="button"] {
+            width: 45px;
+            height: 45px;
+            margin: 2px;
+            font-size: 20px;
+        }
+
+.display {
+    margin-top: 15px;
+    height: 40px;
+    font-size: 25px;
+    text-align: right;
+    justify-content: center;
+}
+.operador.times {
+        background-color: #ffc107; /* amarelo */
+    }

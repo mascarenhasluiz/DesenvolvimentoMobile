@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="cool-12">
+                <div class="form-group">
+                    <input type="text" class="display" id="txtOperacao" readonly>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <input type="button" value="1" onclick="adicionarNumero('1')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="2" onclick="adicionarNumero('2')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="3" onclick="adicionarNumero('3')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="+" class="operador times" onclick="operacao('+')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="4" onclick="adicionarNumero('4')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="5" onclick="adicionarNumero('5')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="6" onclick="adicionarNumero('6')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="-" class="operador times" onclick="operacao('-')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="7" onclick="adicionarNumero('7')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="8" onclick="adicionarNumero('8')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="9" onclick="adicionarNumero('9')">
+            </div>
+            <div class="col-3">
+                  <input type="button" value="*" class="operador times" onclick="operacao('*')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="C" onclick="limpar()">
+            </div>
+            <div class="col-3">
+                <input type="button" value="0" onclick="adicionarNumero('0')">
+            </div>
+            <div class="col-3">
+                <input type="button" value="." onclick="adicionarPonto()">
+            </div>
+            <div class="col-3">
+                <input type="button" value="/" class="operador times" onclick="operacao('/')">
+            </div>
+            <br>
+            <div class="col-3">
+                <input type="button" value="=" class="igual" class="operador minus" onclick="calcular()">
+            </div>
+    </div>
+
+    <script>
+        let operacaoSel;
+        let valor = '';
+        let resultado;
+
+        function adicionarNumero(num) {
+            document.getElementById('txtOperacao').value += num;
+        }
+
+        function adicionarPonto() {
+            if (!document.getElementById('txtOperacao').value.includes('.')) {
+                document.getElementById('txtOperacao').value += '.';
+            }
+        }
+
+        function operacao(op) {
+            operacaoSel = op;
+            valor = parseFloat(document.getElementById('txtOperacao').value);
+            document.getElementById('txtOperacao').value = '';
+        }
+
+        function limpar() {
+            document.getElementById('txtOperacao').value = '';
+        }
+
+        function calcular() {
+            const segundoValor = parseFloat(document.getElementById('txtOperacao').value);
+            switch (operacaoSel) {
+                case '+':
+                    resultado = valor + segundoValor;
+                    break;
+                case '-':
+                    resultado = valor - segundoValor;
+                    break;
+                case '*':
+                    resultado = valor * segundoValor;
+                    break;
+                case '/':
+                    resultado = valor / segundoValor;
+                    break;
+            }
+            document.getElementById('txtOperacao').value = resultado;
+        }
+    </script>
+</body>
+</body>
+</html>
